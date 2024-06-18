@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Objects</title>
+    </head>
+    <body>
+        <script>
+            /*
+            // object 
+            const product = {
+                // property-value pair
+                name: 'socks',
+                price: 1090
+            };
+
+            console.log(product);
+            // dot notation istifadə edərək
+            // obyekt daxilindəki dəyərlərə daxil olmaq
+            console.log(product.name);
+            console.log(product.price);
+
+            //property-ə yeni dəyər təyin etmək
+            product.name = 'cotton socks';
+            console.log(product);
+
+            //object-ə yeni property-value cütü əlavə etmək
+            product.newProperty = true;
+            console.log(product);
+
+            //object-dən property-value cütünü silmək
+            delete product.newProperty;
+            console.log(product);
+            */
+
+            /*
+              object daxilində istənilən dəyər tipini saxlaya bilərik
+              numbers
+              strings 
+              booleans
+              objects
+              functions
+            */
+            const product2 = {
+                //standart olaraq dot notasiyasından istifadə
+                //edirik. Çünki, o daha qısadır və oxunulması daha rahatdır.
+                //ancaq dot notasiyası ilə işləməyən propertylərdən istifadə 
+                //ediriksə, onda bracket notasiyasından istifadə edəcəyik.
+                name: 'shirt',
+                //bracket notasiyasından istifadə edərək
+                //objecti yaradarkən dəyər əlavə edə bilərik
+                // ['delivery-time']: '1 day',
+                //əgər bracketlərin daxilində təkcə string varsa,
+                //onda bracketlər opsiyanaldır.
+                'delivery-time': '1 day',
+                //nested object (an object inside an object)
+                /*
+                 product daxilindəki stars-lar və count-ların
+                 hər ikisi ratinglə əlaqədardır. Ona görə product
+                 daxilində onları qruplaşdırmaq məna kəsb edir.
+                */
+                rating: {
+                    stars: 4.5,
+                    count: 87
+                },
+                //bu formada object daxilində funksiya saxlaya bilərik
+                //bu ona görə işləyir ki, funksiya JS-də sadəcə digər dəyər tipidir.
+                //object daxilində funksiya saxldadıqda bu method adlanır
+                //console.log əslində methoddur, console JS tərəfindən 
+                //təmin olunan objectdir və log 
+                //console obyekti daxilindəki funksiyadır.
+                fun: function function1 () {
+                    console.log('function inside object');
+                }
+            };
+
+            console.log(product2);
+            //dot notation
+            console.log(product2.name);
+            //bracket notation
+            console.log(product2['name']);
+            /*
+            belə olanda xəta alırıq, çünki JS tire işarəsini
+            minus işarəsi olaraq düşünür və riyaziyyat eləməyə çalışır
+            bu tip adlandırmaya sahib olan property-i ilə işləmək
+            üçün bracket notasiyasından istifadə etməliyik
+            console.log(product2.delivery-time);
+            bu halda xəta almırıq, sadəcə, delivery-time
+            objectdə mövcud olmadığından dəyəri undefined olaraq göstərilir.            
+            */
+
+            console.log(product2['delivery-time']);
+
+            /*
+            bracket notasiyasında istifadə edərkən sadəcə 
+            string yazmağa məcbur deyilik.
+            variabledan, hesablamadan və ya nəticəsi dəyər olan 
+            hər bir şeydən istifadə edə bilərik.
+            */
+            // product2[property1];
+            // prodcut2['delivery' + 'time']            
+
+            //nested objectlərdəki dəyərləri əldə etmək üçün
+            //iki dəfə dot notasiyasından istifadə etməliyik.
+            console.log(product2.rating.count);
+            console.log(product2.rating['stars']);
+
+            //funksiyaları da əldə etmək üçün, hər iki 
+            //notasiyadan istifadə edə bilərik
+            //bu dəyər funksiya olduğundan, həmişə ki kimi
+            // () ilə onu çağıra bilərik
+            product2.fun();
+
+            console.log(typeof console)
+            console.log(typeof console.log);
+            
+            //Math.random() da bir methoddur.
+            /*
+              Math JS tərəfindən təmin olunan bir objectdir,
+              random, Math objectində yadda saxlanılan bir funksiyadır.
+              object daxilindəki funksiya = method
+            */
+
+            //Built-in Objects
+            /*
+              console və math objectləri built-in objectlərdir
+              çünki onlar dil tərəfindən təmin olur
+            */
+            
+            //JSON Built-in Objects
+            /*
+              JavaScript Object Notatiton
+              o əslində JSdəki objectə bənzəyən syntaxdır.
+              Ancaq daha az xüsusiyyəti var.
+              JSdəki objectdən əsas fərqi odurki, bütün
+              propertylər və stringlər iki dırnaq işarəsindən
+              istifadə etməlidir.
+              JSON tək dırnaq işarəsini dəstəkləmir
+              JSON həm də funksiyaları dəstəkləmir
+
+              JS Objectini, JSONa çevirməkdə 
+              və eyni formada JSONu, JS Objectinə çevirməkdə
+              kömək edir
+            */
+
+            /*
+              JS Objecti sadəcə JS də məntiq kəsb edir
+              JSON syntaxi isə, demək olarki bütün proqramlaşdırma
+              dillərində başa düşülür, daha universaldır.
+
+              Buna görə iki kompüter arasında data göndərərkən 
+              JSONdan istifadə edirik
+              Həm də data saxlayarkən JSONdan istifadə edirik
+            */
+
+            //JS objectini, stringify methodu ilə JSONa çevirmək
+            JSON.stringify(product2);
+
+            console.log(JSON.stringify(product2));
+            
+            //stringify nəticəni string olaraq verir
+            console.log(typeof JSON.stringify(product2));
+
+            const jsonString = JSON.stringify(product2);
+
+            //JSONu, parse methodu ilə JS Objectə çevirmək
+            console.log(JSON.parse(jsonString));
+            
+            //localStorage Built-in Objects
+
+            /*
+              localStoragedən dəyərli daimi saxlamaqdan 
+              ötrü istifadə edilir. 
+              Buna kimi dəyərləri variablelarda saxlayırdıq
+              ancaq variablelar keçicidir. Onlar sadəcə cari 
+              səhifədə mövcud olurlar.
+              Səhifəni yeniləsək və ya bağlasaq bütün variablelar
+              silinəcək. (RPS oyununda olduğu kimi)
+            */
+
+            //null
+            /*
+              JS-də falsy dəyərlərdən biridir.
+              undefined dəyərinə bənzəyir.
+              İkisidə dəyəri olmayan bir şeyi təmsil edir.
+            */
+
+            //null vs undefined
+            /*
+              null-dan, qəsdən bir şeyin boş olmasını
+              istəyərkən istifadə edirik.
+
+              funksiyaların parameterinə default dəyər
+              təyin edə bilərdik.
+              əgər parameter undefined isə, funksiya default dəyərdən
+              istifadə edəcək.
+              ancaq parameterə null təyin etsək, funkisya default 
+              dəyərdən istifadə etməyəcək.
+              funksiya sadəcə nulldan istifadə edəcək.
+              əksər hallarda null və undefined eyni formada işləyirlər.
+            */
+
+            console.log('auto-boxing');
+            //auto-boxing
+            /*
+              Objectlərlə yanaşı, digər dəyərlərində
+              property və methodları ola bilər.
+            */
+
+            //stringin length adlı propetysi onun uzunluq dəyərini saxlayır
+            console.log('hello'.length);
+            //stringin toUpperCase adlı methodu bütün hərfləri 
+            //kapital olaraq yenidən yazır
+            console.log('hello'.toUpperCase());
+
+            /*
+              Stringlər, object olmadığı halda necə 
+              propertylərə və methodlara sahib ola bilərlər?
+
+              Bunun səbəbi JSin Auto-Boxing adlanan
+              xüsusiyyətidir.
+
+              JS avtomatik olaraq, hello stringini xüsusi object
+              daxilində bükür.
+
+              Və bu object, length propertysinə və toUpperCase
+              methoduna sahibdir. Bu avtomatik olur və biz 
+              string ətrafına bükülmüş xüsusi objecti görmürük.
+
+              Auto-Boxing, numbers və booleans kimi dəyərlərlədə
+              işləyir. O sadəcə, null və undefined dəyərləri ilə
+              işləmir.
+            */
+
+            //!Objects are references
+            const object1 = {
+              message: 'hello'
+            };
+
+            /*
+              Biz bu obyekti yaradanda, əsl dəyər 
+              kompüterin yaddaşında bir yerdə yaranır.
+
+              Və object1 dəyişəni əslində kompüterin yaddaşında, 
+              həmin yerə işarə edən referans alır.
+
+              Bu kompüterdəki fayl və qovluqların qısayollarına
+              bənzəyir.
+
+              Referansı görməyin yolu yoxdur, ancaq bilinki
+              bu referansdır. Və object kompüterin yaddaşında 
+              hər hansısa yerdədir.
+
+              Bunun bu formada işləmə səbəbi, dili daha çox
+              səmərəli eləməkdir.
+            */
+
+            /*
+              Bu kod objecti kopyalamır, o objectə işarə edən
+              referansı kopyalayır.
+
+              Və bu, dili daha səmərəli edir. 
+
+              Çünki, bizim çox böyük obyektimiz olsa, onu
+              yenidən-yenidən kopyalamaq heç yaxşı deyil.
+
+              JS, əvəzində sadəcə referansları kopyalayır ki, bu
+              daha çox sürətlidir. (Copy by Reference)
+
+              object2, object1 ilə eyni referansa sahibdir.
+            */
+            const object2 = object1;
+
+            object1.message = 'Good job!';
+
+            /*
+              object1i const ilə yaratsaq belə
+              message propertysini dəyişə bildik.
+
+              Çünki object1 sadəcə objecti işarə edən
+              referansı ehtiva edir.
+
+              const, variabledakı referansı dəyişdirməyimizə
+              mane olur. Lakin const, referansa daxil olmağımıza 
+              və onun işarə etdiyi obyekti dəyişdirməyimizə mane 
+              olmur.
+            */
+            console.log(object1);
+            /*
+              object2, object1 ilə eyni referansa sahibdir.
+              Buna görə object2nin, message propertysidə 
+              avtomatik olaraq dəyişib.
+            */
+            console.log(object2);
+
+            //!We can't compare objects directly
+
+            const object3 = {
+              message: 'Good job!'
+            };
+
+            /*
+              Eyni dəyərlərə sahib olsalar belə
+              nəticə olaraq false çıxacaq.
+
+              Çünki, objectlər referanslar idi. 
+
+              object3də referans ehtiva edir. 
+              Bu kod object daxilindəki dəyərləri yox
+              referansları müqayisə edir.
+              
+              Hər ikisinin referansı fərqli olduğundan 
+              nəticə false olur.
+            */
+            console.log(object3 === object1);
+
+            /*
+              object2, object1lə eyni referansa sahibdir.
+              Nəticədə true olacaq.
+            */
+            console.log(object2 === object1);
+
+            /*
+              Daxilindəki dəyərləri müqayisə etmək üçün,
+              bunu manual olaraq eləməliyik.
+            */
+
+            //Shortcuts for Objects
+            const object4 = {
+              message: 'Good Job!',
+              price: 799
+            };
+
+            /*
+              variable adı, property adı ilə eynidirsə
+              bunun üçün qısayol var.
+
+              const message = object4.message; 
+            */
+
+            //destructuring
+            /*
+              bu qısayol propertyni, objectdən kənara çıxardır
+              və onu message variableda yadda saxlayır.
+
+              const { message } = object4;
+              console.log(message);
+            */
+
+            /*
+              bu qısayolu çoxlu property üçün istifadə
+              edə bilərik.
+            */
+            const { message, price } = object4;
+            console.log(message);
+            console.log(price);
+
+            //shorthand property
+            /*
+              bu message variable daxilində nə varsa
+              alır və onu kodda əvəz edir.
+            */
+            const object5 = {
+              /*
+                 property və variable adı eyni olarsa,
+                 onu 1 dəfə yaza bilərik.
+              */
+              // message: message
+              message,
+              //shorthand method
+              /*
+                method: function function1() {
+                console.log('method');
+
+                bu qısayolda funksiya adı lazım deyil.
+              }
+              */
+              method() {
+                console.log('method');
+              }
+            };
+            console.log(object5);
+            object5.method();
+        </script>
+    </body>
+</html>

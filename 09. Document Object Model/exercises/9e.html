@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9e/f</title>
+  </head>
+  <body>
+    <input type="text" class="js-input" onkeydown="keyDownDisplay(event)">
+    <button onclick="displayText()">Submit</button>
+    <p class="js-paragraph">
+
+    </p>
+    <script>
+        const inputElement = document.querySelector('.js-input');
+
+        function displayText() {
+            document.querySelector('.js-paragraph')
+                .innerHTML = `Your name is: ${inputElement.value}`
+        }
+
+        function keyDownDisplay(event) {
+            if (event.key = 'Enter') {
+                displayText();
+            }
+        }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9c</title>
+  </head>
+  <body>
+    <button onclick="buttonElement('heads')">heads</button>
+    <button onclick="buttonElement('tails')">tails</button>
+    <p class="js-paragraph">
+
+    </p>
+    <script>
+        function buttonElement(text) {
+           const paragraphElement = document.querySelector('.js-paragraph');
+
+           paragraphElement.innerHTML = `You chose: ${text}`
+        }
+    </script>
+  </body>
+</html>

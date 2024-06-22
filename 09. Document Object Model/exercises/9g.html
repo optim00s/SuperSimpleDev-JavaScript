@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9g</title>
+  </head>
+  <body>
+    <p>YouTube Subscribe Button</p>
+    <!-- 
+      innerHTMLdə dəyişiklik edərkən, textin ətrafında
+      heçbir boşluq olmadığından əmin olmaq lazımdır.
+      Boşluq olduqda if daxilindəki müqayisə düzgün
+      hesablanmır. 
+      'Subscribe' x= '   Subscribe'
+
+      innerTextdən istifadə edərək, text ətrafındakı 
+      boşluqların yaratdığı problemdən xilas ola 
+      bilərik.
+    -->
+    <button class="js-subs-button" 
+    onclick="
+       /*
+         bu halda, buttondakı text dəyişmir.
+
+         çünki, buttonElementə .js-subs-buttonunda yer alan
+         texti yəni sadəcə stringi təyin edirik. 
+
+         buttonElement string dəyər tipindəki variabledır.
+         DOM elementi ilə heç bir əlaqəsi yoxdur.
+        
+         buttona kliklədiyimizdə əslində,
+         buttonElementi dəyəri Subscribed textinə dəyişir
+         və bunu console.log ilə görə bilərik.
+
+         ancaq DOM elementi ilə əlaqəsi olmadığından 
+         button daxilindəki text dəyişməyəcəkdir.
+
+         const buttonElement = document.querySelector('.
+          js-subs-button').innerHTML;
+
+         buna görə də, buttonElement variablena sadəcə 
+         .js-subs-button elementini təyin edirik.
+
+         const buttonElement = document.querySelector('.
+         js-subs-button');
+
+         beləliklə buttonElement daxilində 
+         HTML elementi saxlanılır və 
+         innerHTML propertysi ilə onun dəyərini
+         dəyişirik.
+
+         innerHTML 
+         element daxilindəki HTMLi əldə edir
+
+         innerText
+         element daxilindəki texti(əlavə boşluqlar olmadan) 
+         əldə edir
+       */
+      subscribe();
+    ">Subscribe</button>
+
+    <p>Rock Paper Scissors</p>
+    <a href="dom-rock-paper-scissors.html">Click here</a>
+
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <!-- 
+      onkeydown, klaviaturada
+      bir düymə basdıqda işə düşür
+
+      clicks, keydowns 
+      eventdilər
+
+      onclick, onkeydowns
+      event listenersdilər.
+      onlar eventləri yoxlayırlar və
+      event baş verəndə JS kodunu işə 
+      salır
+
+      event JS tərəfindən təmin olunan
+      objectdir və o event haqqında 
+      informasiya ehtiva edir.
+
+      onclickdə daxil olmaqla
+      bütün event listenerlər 
+      event objecti əldə edir.
+      
+      console.log(event);
+    --->
+    <input class="js-cost-input" type="text" placeholder="Cost of order"
+      onkeydown="
+        handleCostKeydown(event);
+      "
+    >
+    <button onclick="
+      calculateTotal();
+    "
+    >Calculate</button>
+
+    <p class="js-total-cost">
+
+    </p>
+
+    <script>
+      function subscribe() {
+        const buttonElement = document.querySelector('.js-subs-button');
+
+        if (buttonElement.innerText === 'Subscribe') {
+          buttonElement.innerText = 'Subscribed'; 
+        } else {
+          buttonElement.innerText = 'Subscribe';
+        }
+      }
+
+      function calculateTotal() {
+        const inputElement = document.querySelector('.js-cost-input');
+        /*
+          input elementi, void element
+          olduğundan daxilində HTML 
+          yoxdur
+
+          ona görə də, innerHTML ilə
+          input daxilindəki texti əldə
+          edə bilmərik
+
+          bunun əvəzinə, value propertysindən
+          istifadə edərək daxilindəki 
+          texti əldə edirik.
+
+          Number funksiyası () daxilindəki 
+          dəyəri alaraq, numbera çevirir
+        */
+
+        //dollardan centə çeviririk
+        let cost = Number(inputElement.value) * 100;
+        
+        /*
+          25 yazdıq 35, yerinə
+          2510 əldə edirik.
+
+          (type coercion)
+          bunun səbəbi JS, 10 rəqəmini
+          avtomatik olaraq stringə 
+          çevirir. 
+          və 25 ilə 10nu birləşdirərək
+          2510 əldə edir. 
+
+          DOMdan bu formada dəyər 
+          əldə edərkən, dəyərin
+          tipi string olacaq.
+
+          bunu aradan qaldırmaq üçün
+          stringi, numbera çevirməliyik
+        */
+        if (cost < 4000) {
+          cost += 1000;
+        }
+
+        //centdən dollara qayıdırq
+        document.querySelector('.js-total-cost')
+          .innerHTML = `$${cost / 100}`;
+      }
+
+      /*
+        event, funksiya daxilində mövcud olmadığından
+        event objectini parameter olaraq funksiyaya 
+        daxil edirik
+      */
+      function handleCostKeydown(event) {
+        if (event.key === 'Enter') {
+          calculateTotal();
+        }
+      }      
+    </script>
+  </body>
+</html>

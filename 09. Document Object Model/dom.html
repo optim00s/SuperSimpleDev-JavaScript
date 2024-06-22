@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <button>hello</button>
+    <button class="js-button">Second button</button>
+    <script>
+      //DOM
+      /*
+          DOM, JS tərəfində təmin olunan
+          built-in objectdir. 
+          Document Object
+
+          document objecti ilə veb səhifə
+          bir-biri ilə əlaqələndirilib.
+
+          document objecti, veb səhifəni 
+          təmsil edir/modelləşdirir.
+        */
+      //səhvədəki hər şeyi silərək, hello texti yazır
+      // document.body.innerHTML = 'hello';
+
+      /*
+        document - built-in objectdir.
+        body - document objectinin,
+        object dəyər tipindəki propertysidir.
+        innerHTML - body object olduğundan,
+        dot notasiyası ilə onun propertysinə daxil 
+        oluruq.
+      */
+      //brauzer tabındakı titleı dəyişdirir
+      // document.title = 'Good job!';
+
+      //Syntax Rules for DOM
+      /*
+        DOM, sadəcə built-in document
+        objectidir.
+        Syntax qaydaları objectlərdəki 
+        kimidir.
+        DOMlar da, methodlara sahibdir.
+      */
+
+      //Properties and Methods
+
+      //brauzerdəki tabın titlenı dəyişir
+      // console.log(document.title);
+      // document.title = "Changed";
+
+      /*
+        Bu, çox xüsusi propertyidir.
+        O, həqiqi mənada, body HTML elementini 
+        alır və bizim JS-də yerləşdirir.
+
+        Bu, bizə JSin ən vacib xüsusiyyətlərindən
+        birini göstərir.
+        JS daxilində, HTML elementlərinə sahib ola 
+        bilərik.
+
+        DOM, JS və HTML bir arada birləşdirir.
+        JSə veb səhifənin tam idarəsini verir.
+
+        HTML elementləri, JSin daxilində olanda,
+        HTML elementləri JavaScript objectinə 
+        çevirilir.
+      */
+      // console.log(document.body);
+
+      //body elementi JS daxilində olarkən, o sadəcə objectdir
+      // console.log(typeof document.body);
+
+      /*
+        innerHTML propertysi, body daxilindəki
+        bütün HTML idarə edir. Buna görə
+        innerHTML adlanır.
+
+        propertyni dəyişdikdə, body elementin
+        daxilindəki HTMLi dəyişirik.
+      */
+      // console.log(document.body.innerHTML);
+      //body daxilindəki bütün HTMLi Changed texti ilə dəyişəcək
+      // document.body.innerHTML = "Changed";
+
+      /*
+        innerHTML istifadə edərkən,
+        HTMLi sadəcə text ilə yox, yeni
+        HTML kodu ilə də dəyişə bilərik.
+      */
+      //body daxilindəki bütün HTMLi yeni HTML kodu ilə dəyişəcək
+      // document.body.innerHTML = "<button>Good job!</button>";
+
+      /*
+        querySelector methodu, səhifədəki istənilən
+        HTML əldə edə bilir və onu JSin daxilinə qoyur
+
+        əldə etmək istədiyimiz HTML elementin 
+        adını methoda daxil etməliyik
+      */
+      document.querySelector('button');
+
+      //səhifədəki ilk button elementini əldə edəcək
+      console.log(document.querySelector('button'));
+
+      /*
+        hər HTML elementi, innerHTML adlı 
+        propertyiyə sahibdir.
+
+        bu, element daxilindəki HTMLi
+        idarə etməyimizə kömək edir.
+      */
+
+      //button elementinin daxilindəki HTMLi verəcək
+      console.log(document.querySelector('button').innerHTML);
+
+      //sadəcə button elementinin daxilindəki HTMLi dəyişdirir
+      document.querySelector('button')
+       .innerHTML = 'Changed';
+
+      /*
+        document.querySelector() istifadə edərək,
+        səhifədən istənilən elementi əldə edə,
+        onu JS koduna qoya və həmin element daxilindəki
+        HTML idarə edə bilərik.
+
+        bu bizə, səhifədə sadəcə dəyişmək lazım
+        olan hissəni/ləri dəyişməyə icazə verir.
+      */
+      
+      /*
+        səhifədə iki button olsa
+
+        document.querySelector() 
+        sadəcə səhifədəki ilk buttonu 
+        əldə edir.
+
+        ikinci buttonu əldə etmək üçün
+        class atrobutundan istifadə edəcəyik
+      */
+      /*
+        nöqtə ilə başlağımız element əvəzinə
+        class axtardığımızı göstərir
+
+        və bu class selector adlanır
+
+        common practice:
+        js- ilə adlandırmağa başlamaq,
+        bu classın JSdə istifadə olunduğu göstərir
+
+        buttonElement
+        variable adını elementlə bitiririk ki,
+        bu variablein daxilində HTML elementi yer 
+        aldığınl göstərək
+      */
+      //js-button classlı elementi seçir
+      console.log(document.querySelector('.js-button'));
+
+      const buttonElement =
+      document.querySelector('.js-button');
+
+      console.log(buttonElement);
+    </script>
+  </body>
+</html>

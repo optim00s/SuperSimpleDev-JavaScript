@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9d</title>
+  </head>
+  <body>
+    <input type="text" class="js-input">
+    <button onclick="displayText()">Submit</button>
+    <p class="js-paragraph">
+
+    </p>
+    <script>
+        const inputElement = document.querySelector('.js-input');
+
+        function displayText() {
+            document.querySelector('.js-paragraph')
+                .innerHTML = `Your name is: ${inputElement.value}`
+        }
+    </script>
+  </body>
+</html>

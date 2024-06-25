@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10c</title>
+  </head>
+  <body>
+    <button class="js-button">
+      Test
+    </button>
+    <script>
+      const buttonElement = document.querySelector('.js-button');
+      /*
+        classListlə button elementinin classını idarə edirik
+        contains methodu, bu elementdə js-button adlı class
+        olub-olmadığını yoxlayır  
+      */
+      console.log(buttonElement.classList.contains('js-button'));
+    </script>
+  </body>
+</html>

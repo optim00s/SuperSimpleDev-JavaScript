@@ -1,0 +1,17 @@
+.cost-input {
+  padding: 10px;
+  font-size: 15px;
+}
+
+.calculate-button {
+  background-color: green;
+  color: white;
+  border: none;
+  font-size: 15px;
+  padding: 12px 15px;
+  cursor: pointer;
+}
+
+.js-error-message {
+  color: red;
+}

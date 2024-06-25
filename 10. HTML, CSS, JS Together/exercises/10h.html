@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10h</title>
+    <link rel="stylesheet" href="10h.css">
+  </head>
+  <body>
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <!-- 
+      onkeydown, klaviaturada
+      bir düymə basdıqda işə düşür
+
+      clicks, keydowns 
+      eventdilər
+
+      onclick, onkeydowns
+      event listenersdilər.
+      onlar eventləri yoxlayırlar və
+      event baş verəndə JS kodunu işə 
+      salır
+
+      event JS tərəfindən təmin olunan
+      objectdir və o event haqqında 
+      informasiya ehtiva edir.
+
+      onclickdə daxil olmaqla
+      bütün event listenerlər 
+      event objecti əldə edir.
+      
+      console.log(event);
+    --->
+    <input class="js-cost-input cost-input" type="text" placeholder="Cost of order"
+      onkeydown="
+        handleCostKeydown(event);
+      "
+    >
+    <button class="calculate-button" onclick="
+      calculateTotal();
+    "
+    >Calculate</button>
+
+    <p class="js-total-cost">
+
+    </p>
+
+    <p class="js-error-message">
+      
+    </p>
+    <script src="10h.js"></script>
+  </body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrays and Loops</title>
+  </head>
+  <body>
+    <script>
+        // //Arrays
+        // /*
+        //     array, JSdə digər dəyər tipidir
+        //     və dəyərlər siyahısını təmsil edir
+
+        //     arrayin özləridə dəyərdir, 
+        //     beləliklə onları variable daxilində 
+        //     saxlaya bilərik
+
+        //     array = list of values index = arraydəki dəyərin pozisiyasıdır
+
+        //     index 0 
+        //     index 1
+        //     index 2
+        //     . . .
+
+        //     bu 0-indexed arraydir
+        // */
+        // //bu array, 3 numberi təmsil edir
+        // const myArray = [
+        //     10,
+        //     20, 
+        //     30
+        // ];
+        // console.log(myArray);
+
+        // /*
+        //   arrayləri çoxlu sətrdə yazmaq üçün,
+        //   hər dəyərdən sonra vergül işarəsi qoyuruq
+
+        //   array daxilindəki spesifik
+        //   dəyəri əldə etməkdən ötrü, []
+        //   istifadə edirik  
+
+        //   index (position in the array)
+        //   mörtərizə daxilindəki dəyər,
+        //   arraydəki pozisiyanı təmsil edir
+
+        //   0, ilk dəyər deməkdir
+        // */
+        // console.log(myArray[0]);
+
+        // //array daxilindəki spesifik dəyəri dəyişmək
+        // myArray[0] = 99;
+        // console.log(myArray);
+
+        // /*
+        //     array daxilinə istənilən tip 
+        //     dəyər qoya bilərik 
+
+        //     arrayin özüdə,bir dəyər tipi olduğundan
+        //     onuda arrayin daxilində saxlmaq olaq
+        // */            
+        // [1, 'hello', true, { name: 'socks'}, [1, 2]]
+
+        // /*
+        //   arraylər əslində, objectdir
+        //   sadəcə objectin xüsusi tipidir
+
+        //   arraylar object tipində olduqlarından,
+        //   propertylərə və methodlarada sahibdirlər
+        // */
+        // console.log(typeof [1, 2]);
+
+        // /*
+        //   bu kod, daxilindəki dəyərin array 
+        //   olub-olmadığını yoxlayacaq
+        // */
+        // Array.isArray([1, 2]);
+        // console.log(Array.isArray([1, 2]));
+
+        // //length propertysi, arraydə neçə dəyər olduğunu göstərir
+        // console.log(myArray.length);
+
+        // //push methodu, arrayin sonuna dəyər əlavə edir
+        // myArray.push(100);
+        // console.log(myArray);
+        
+        // //splice methodu, arraydən dəyər silir
+        // /*
+        //   splice iki dəyər(number tipində) alır
+
+        //   ilk dəyər, silinmənin başlanğıc 
+        //   indeksidir
+        //   ikinci dəyər, silinəcək dəyərlərin 
+        //   sayıdır
+
+        //   0, 1 
+        //   0 indexsindən başlayaraq 1 dəyər siləcək
+
+        //   0, 2
+        //   0 indexsindən başlayaraq 2 dəyər siləcək
+        // */
+        // myArray.splice(0, 1);
+        // console.log(myArray);
+
+
+        //Loops
+
+        // //loop variable
+        // let i = 1;
+
+        // /*
+        //   while loop
+        //   while daxlindəki kodu,
+        //   kompüter təkrar-təkrar işlədəcək
+
+        //   i <= 5 (loop condition)
+
+        //   əgər condition true olsa,
+        //   loop təkrar-təkrar davam edəcək
+
+        //   əgər conditio false olsa,
+        //   loop dayanacaq və növbəti sətrə keçəcək
+
+        //   i = 1 olanda,
+
+        //   1 <= 5 şərti ödənilir
+        //   və loop daxilindəki kod işləyərək
+        //   konsolda 1 göstərilir, ardınca i-nin 
+        //   dəyəri 1 artılaraq, 2-ə təyin edilir
+
+        //   ancaq, i = 6 olanda, 
+        //   şərt false olur və loop dayanır
+        //   növbəti sətrə keçilir
+
+        //   (loop body)
+        //   console.log(i);
+        //   i = i + 1; 
+
+        //   i = i + 1; (increment step)
+        //   increment step əmin olurki,
+        //   loop bir nöqtədə dayanacaq
+
+        //   bu olmadan, loop sonsuza kimi
+        //   işləyəcək (infinite loop)
+
+        //   hər dəfə loopun işləməsi
+        //   iteration adlanır
+
+        //   bu loopda 5 iteration etmişik
+
+        //   looplar scope yaradır
+        // */
+        // while (i <= 5) {
+        //   console.log(i);
+        //   i++;
+        // }
+
+        // /*
+        //   JSdə 2 tip loop var
+        //   while
+        //   for
+        // */
+
+        // /*
+        //   mörtərizələrin daxilinə 
+        //   3 kod parçası daxil edirik
+
+        //   ilk parça loop variable
+        //   ikinci parça loop condition
+        //   üçüncü parça increment step
+
+        //   for loop, while-ın qısa halıdır
+        // */
+        // for (let i = 1; i <= 5; i++) {
+        //   console.log(i);
+        // }
+
+        // //While vs For Loop
+        // /*
+        //   Standard Loop istifadə ediriksə, 
+        //   for istifadə etməliyik
+
+        //   yəni, bir loop 
+        //   loop variablena,
+        //   conditiona və increment stepe 
+        //   sahibdirsə
+
+        //   çünki, for daha qısa və səliqəlidr
+
+        //   Non-standard loop ediriksə, 
+        //   while tövsiyyə olunur
+
+        //   yəni, ədədlərdən biri ən azı 0.5 
+        //   olana qədər, random number yaradırıqsa
+
+        //   çünki while daha çox flexibledır
+        // */
+
+        // /*
+        //   non-standard loop
+
+        //   onun hər dəfə artırılan loop variablena 
+        //   və elecədə increment stepədə ehtiyacı yoxdur
+        // */
+        // let randomNumber = 0;
+
+        // while (randomNumber < 0.5) {
+        //   randomNumber = Math.random();
+        // }
+
+        // console.log(randomNumber);
+
+        // //Looping Through an Array
+        // const todoList = [
+        //   'make dinner',
+        //   'wash dishes',
+        //   'watch youtube'
+        // ];
+
+        // /*
+        //   arrayin sonuncu indeksi
+        //   array.length - 1
+
+        //   indexdən istifadə edərək,
+        //   indexdəki dəyəri əldə edə bilərik
+        //   todoList[index]
+
+        //   arraydəki hər bir indexdən keçərək,
+        //   hər bir indexdəki dəyəri alır və
+        //   onu consoleda göstərir
+
+        //   bu texnika, 
+        //   looping through an array
+        //   adlanır
+
+        //   1. loopdan istifadə edərək, arraydəki hər bir 
+        //   dəyərdən keçirik
+        //   2. hər bir dəyər ilə bir şey edirik
+
+        
+        // */ 
+        // // for (let index = 0; index <= todoList.length - 1; index++) {
+        // //   const value = todoList[index];
+        // //   console.log(value);
+        // // }
+    
+        // //shortcuts for looping through array
+        // for (let i = 0; index <= todoList.length; i++) {
+        //   const value = todoList[i];
+        //   console.log(value);
+        // }
+
+        //accumulator pattern
+        /*
+          1. nəticəni saxlamaq üçün, variable (total) yaradırıq
+          2. arrayin içindən keçərək, totalı yeniliyirik
+
+          //accumulator variable
+          let total = 0;
+
+          const nums = [1, 1, 3];
+          let total = 0;
+
+          //massivdə dövrə vurduqca biz bu 
+          dəyişənə nəticə əlavə edirik və ya toplayırıq (accumalating)
+
+          buna görədə bu accumalator pattern adlanır
+          for (let i = 0; i < nums.length; i++) {
+              const num = nums[i];
+              total += num;
+          }
+
+          console.log(total);
+        */
+
+        /*
+          nəticəni toplamaq üçün,
+          fərqli dəyər tiplərindən istifadə
+          edə bilərik
+        */
+        //accumalator variable
+        const numsDoubled = [];
+
+        const nums= [1, 1, 3];
+        let total = 0;
+
+        for (let i = 0; i < nums.length; i++) {
+          const num = nums[i];
+          numsDoubled.push(num * 2);
+        }
+
+        console.log(numsDoubled);
+    </script>
+  </body>
+</html>

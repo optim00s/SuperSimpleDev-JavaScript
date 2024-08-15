@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM RPS</title>
+    <!-- 
+      void element  
+
+      rel = relation 
+      kompüterə hansı tip fayl yüklədiyimizi deyir
+
+      rel, stylesheet dəyərinə sahibdirsə, bu o deməkdirki
+      CSS faylı yükləniləcək
+
+      href = 
+      kompüterə hansı faylı yüklədiyimizi deyir (bu da filepaths dəstəkləyir)
+
+      script elementi kimi, çoxlu link elementindən istifadə edə bilərik
+    -->
+    <link rel="stylesheet" href="styles/rock-paper-scissors.css">
+  </head>
+  <body>
+    <p class="title">Rock Paper Scissors</p>
+    <button class="move-button" onclick="
+        playGame('rock');
+    ">
+      <!-- src filepathdən istifadə edərək png faylını tapır -->
+      <img class="move-icon" src="images/rock-emoji.png" alt="">
+    </button>
+
+    <button class="move-button" onclick="
+        playGame('paper');
+    ">
+      <img class="move-icon" src="images/paper-emoji.png" alt="">
+    </button>
+
+    <button class="move-button" onclick="
+        playGame('scissors');
+    ">
+      <img class="move-icon" src="images/scissors-emoji.png" alt="">
+    </button>
+
+    <p class="js-result result-paragraph">
+
+    </p>
+
+    <p class="js-moves move-paragraph">
+
+    </p>
+
+    <p class="js-score">
+
+    </p>
+
+    <button class="reset-score-button" onclick="
+        resetScore();
+    ">Reset Score</button>
+    <button class="auto-play-button" onclick="
+        autoPlay();
+    ">Auto Play</button>
+    <!-- 
+     biz çoxlu script elementindən istifadə edə bilərik
+     bu bizə, JSmizi çoxlu fayllara bölməyə imkan verir 
+     və onları yuxarıdan aşağıya doğru
+     səhifəyə yükləyir
+    -->
+    <script src="scripts/rock-paper-scissors.js"></script>
+  </body>
+</html>

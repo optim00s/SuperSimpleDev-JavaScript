@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App</title>
+  </head>
+  <body></body>
+  <script>
+    /*
+    setInterval(function() {
+        document.title = `(${message}) New Message`;
+
+        setTimeout(function() {
+            document.title = 'App';
+        }, 1000);
+    }, 2000);    
+    */
+
+    setInterval(function() {
+        if(document.title === 'App') {
+            document.title = `(2) New Message`;
+        } else {
+            document.title = 'App'
+        }
+    }, 1000);
+
+  </script>
+</html>

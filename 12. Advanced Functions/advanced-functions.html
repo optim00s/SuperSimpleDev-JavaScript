@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Functions</title>
+  </head>
+  <body>
+    <script>
+        //Review: How to use functions
+        // /*
+        //   funksiya sayəsində kodu 
+        //   yenidən istifadə edə bilirik
+        // */
+        // function greeting() {
+        //   console.log('hello');
+        // }
+
+        // /*
+        //   bu kod funksiyanı çağırmaq 
+        //   adlanır
+
+        //   calling the function or 
+        //   running the function
+        // */
+        // greeting();
+
+        // /*
+        //   function are values
+
+        //   funksiyalar sadəcə, digər value
+        //   tipidir.
+
+        //   funksiyalar value olduğuna görə,
+        //   onları string, numbers, booleans kimi 
+        //   variable daxilində saxlaya bilərik
+
+        //   variable daxilində saxlayarkən,
+        //   sona ; işarəsini qoymaq lazımdır.
+        // */
+        // const num = 2;
+
+        // //function inside a variable
+        // const function1 = function greeting() {
+        //   console.log('hello2');
+        // };
+
+        // console.log(function1);
+        // console.log(typeof function1);
+
+        // /*
+        //   variable funksiya ehtiva etdiyini
+        //   görə, variablein adını yazaraq çağıra
+        //   bilərik.
+        // */
+        // function1();
+
+        // /*
+        //   JS-də, funksiya daxil olmaq üçün, yol varsa
+        //   funksiya adı lazım deyil.
+
+        //   const function1 = function greeting() {
+        //     console.log('hello2');
+        //   };
+
+        //   burda, funksiyaya variabledan istifadə 
+        //   edərək daxil oluruq və funksiya adı lazımlı
+        //   deyil.
+
+        //   const function1 = function() {
+        //     console.log('hello2');
+        //   };
+
+        //   bu Anonymous Function (function without a name) 
+        //   adlanır.
+        // */
+
+        // /*
+        //   Əslində, kurs boyunca olan funksiya syntaxı
+
+        //   function greeting() {
+        //     console.log('hello');
+        //   }
+        //   greeting();
+
+        //   var greeting = function() {
+        //     console.log('hello');
+        //   }
+
+        //   bunun shortuctu idi.
+
+        //   Ancaq, birinci syntaxin iki üstünlüyü var
+        //   1. Easier to read
+        //   2. Hoisting (qaldırma)
+
+        //   Hoisting o deməkdir ki, funksiyanı
+        //   funksiya yaranmamışdan qabaq çağıra bilərik.
+      
+        //   greeting();   
+
+        //   function greeting() {
+        //     console.log('hello');
+        //   }
+       
+        //   hoisting, variable daxilində saxlanan 
+        //   funksiyalarda işləmir
+        // */
+
+        // //we can save a value in object
+
+        // /*
+        //   property: value
+        //   funksiyalarda value olduğundan, onlarıda
+        //   object daxilində saxlaya bilərik.
+
+        //   beləliklə, fun propertysi altında, obyekt
+        //   daxilində funksiya saxladıq.
+        // */
+        // const object1 = {
+        //   num: 2,
+        //   fun: function() {
+        //     console.log('hello3');
+        //   }
+        // };
+
+        // /*
+        //   funksiyaya daxil olmaq üçün,
+        //   dot notasiyasından istifadə edirik.
+
+        //   və funın valuesu funksiya olduğundan 
+        //   onu çağıra bilərik
+
+        //   bu method (function saved inside object) idi.
+        // */
+        // object1.fun();
+
+        // //we can pass a value into a function
+
+        // function display(param) {
+        //   console.log(param);
+        // }
+
+        // /*
+        //   bu, passing a value into function
+        //   olaraq bilinir.
+        // */
+        // display(2);
+
+        // /*
+        //   funksiyalarda value olduğundan, 
+        //   funksiyaya, funksiya göndərə bilərik.
+
+        //   param bu anonymous funksiyasını
+        //   daxilində saxlayacaq.
+        //   function() {
+        //     console.log('hello4');
+        //   }
+
+        //   paramı varaible kimi istifadə edə 
+        //   bilərik.
+        //   və o funksiya ehtiva etdiyini görə
+        //   çağırırıq.
+        // */
+        // function run(param) {
+        //   param();
+        // }
+        // /*
+        //   bu, passing a function into another 
+        //   function adlanır
+
+        //   göndərdiyimiz funksiya, callback function
+        //   və ya callback adlanır.
+        // */
+        // run(function() {
+        //   console.log('hello4');
+        // });
+
+        // /*
+        //   xülasə, funksiyalar valuelardır.
+        //   valuelar ilə nə edə biliriksə,
+        //   funksiyalarlada onları edə bilərik.
+        // */
+
+        // //PRACTICAL EXAMPLES
+
+        // //setTimeout() and Asynchronous Code
+
+        // /*
+        //   setTimeout()
+        //   allows us to run a function in the future
+
+        //   setTimeout built-in funksiyadır. 
+        //   iki parameter alır
+        //   1. gələcəkdə işlədəcəyimiz funksiya
+        //   (bunu eləyəndə, value olaraq funksiya istifadə edirik
+        //   və funksiyanı başqa funksiyaya göndəririk)
+        //   2. bu funksiyanı işə salmaq üçün gözləmə müddəti
+        //   (a number in milliseconds)
+
+        //   setTimeout(function() {
+        //     console.log('timeout')
+        //   }, 3000);
+
+        //   bu setTimeout 3 saniyə gözlədikdən sonra,
+        //   funksiyanı işə salacaq.
+        // */
+        // setTimeout(function() {
+        //   console.log('timeout')
+        //   console.log('timeout2')
+        // }, 3000);
+
+        // /*
+        //   ilk olaraq next line və 
+        //   3 saniyə sonra timeout göstərilir.
+
+        //   Burda nə baş verir, niyə bunlar
+        //   tərsinədir?
+
+        //   setTimeout timer qurur və 3 saniyə 
+        //   sonra funksiyanı çağırır. 
+
+        //   bitməsi üçün 3 saniyə gözləmir, timeri 
+        //   qurur və anındaca növbəti sətrə keçir.
+
+        //   buna görə next line birinci göstərilir.
+
+        //   bu Asynchronous Code adlanır
+        //   won't wait for a line to finish 
+        //   before going to the next line
+
+        //   növbəti sətrə keçməzdən əvvəl, həmin sətrin
+        //   bitməsini gözləməyəcək 
+
+        //   Synchronous Code
+        //   will wait for one line to finish
+        //   before going to the next line 
+
+        //   növbəti sətirə keçməzdən əvvəl, sətrin 
+        //   bitməsini gözləyəcək
+
+        //   setTimeout() daxilindəki kod da, 
+        //   synchronous koddur.
+
+        //   setTimeout(function() {
+        //     console.log('timeout')
+        //     console.log('timeout2')
+        //   }, 3000);
+
+        //   3 saniyə sonra,
+        //   timeout
+        //   timeout2 
+        //   göstəriləcək
+
+        //   setTimeoutun asynchronous olmasının
+        //   üstünlüyü odur ki, kodumuzu 3 saniyə üçün bloklamır.
+        //   arxada timer qurur və növbəti kod sətrinə keçir.
+
+        //   bu kodumuza, timer arxada davam edərkən, digər
+        //   şeylər eləməyə imkan verir.
+
+        //   və bu real həyata oxşardır. alarm clockda timer 
+        //   qursanız, dayanıb timerin bitməsini gözləməyəcəksiniz.
+        //   davam edib, başqa bir şey edəcəksiniz.
+
+        //   asynchronous kodda eyni konseptdədir
+        // */
+        // console.log('next line');
+
+        // //setInterval()
+
+
+        // /*
+        //   setInterval built-in funksiyadır.
+
+        //   setInterval(), setTimeout() la eyni iki
+        //   parametri alır.
+        //   1. gələcəkdə işlədəcəyimiz funksiya
+        //   2. bu funksiyanı işə salmaq üçün gözləmə müddəti
+        //   (a number in milliseconds)
+
+        //   setInterval, bu funksiyanı 3 saniyə sonra
+        //   işə salacaq. 
+        //   ancaq, hər 3 saniyədən bir funksiyanı yenidən
+        //   işlədəcək.
+
+        //   setIntervalda async funksiyadır
+        //   intervalı təyin edib, anındaca növbəti sətrə
+        //   keçəcək
+
+        //   setInterval()
+        //   it will keep running a function 
+        //   in the future
+
+        //   setInterval() ı necə dayandıra bilərik?
+
+        //   əslində, setInterval() number qaytarır.
+        //   və bu number, ID kimidir. bu ID-dən istifadaə
+        //   edərək, intervalı dayandıra bilərik.
+
+        //   clearInterval() built-in funksiyası ilə 
+        //   bunu edirik. mörtərizələr daxilində dayandırmaq
+        //   istədiyimiz ID ni daxil edirik.
+
+        //   //sonuncu intervalin IDsini alırıq
+        //   let intervalId;
+
+        //   intervalId = setInterval(function() {
+        //     const playerMove = pickComputerMove();
+        //     playGame(playerMove);
+        //   }, 1000);
+
+        //   clearInterval(intervalId);
+        // */
+        // setInterval(function() {
+        //   console.log('interval');
+        // }, 3000);
+
+        // console.log('next line 2');
+        
+        //Loop through an array
+
+        /*
+          arraydən keçmək üçün,
+          for/while loopdan istifadə edirdik.
+
+          bunun digər yolu isə, forEach() adlanan
+          arrayin methodundan istifadə etməkdir.
+
+          forEach() in mörtərizələri daxilində arrayin
+          hər dəyəri üçün funksiya daxil edirik.
+
+          yenə, funksiya daxilinə funksiya ötürürük.
+
+          ancaq, ötürülən funkisiya parameterlərə sahib olacaq.
+
+          forEach() tam olaraq, arrayin içindən keçəcək və
+          hər bir value üçün, həmin valuenu parametrdə saxlayacaq 
+          və funksiyanı işə salacaq.
+
+          forEach() is the preferred way to 
+          loop through an array
+
+          çünki, for loopu oxumaqdan daha rahatdır.
+          həm də, forEach() in ikinci parameteri indexdir.
+
+          əvvəlki, dərslərdə loopların continue, break
+          xüsusiyyətini öyrənmişdik.
+
+          continue
+          növbəti artıma/addıma ötürməyimizə kömək edir.
+
+          forEach() mehtodunda, continue yoxdur. 
+          ancaq eyni şeyi return statement ilə edə bilərik.
+ 
+          . . .
+          if (value === 'wash dishes') {
+            return;
+          }
+          . . .
+
+          return, bu funksiyanı erkən dayanadıracaq və
+          növbəti funksiyaya keçəcək.
+
+          təməl olaraq, for loopdakı continue ilə eyni şey edir.
+
+          break
+          loopdan erkən çıxmağımıza kömək edir.
+
+          forEach() loopunda, break etməyin 
+          asan yolu yoxdur. 
+
+          breakdən istifadə edib, loopdan erkən çıxmalıyıqsa,
+          onda for loopdan istifadə etməliyik.
+        */
+        [
+          'make dinner', 
+          'wash dishes',
+          'watch youtube'
+        ].forEach(function(value, index) {
+          if (value === 'wash dishes') {
+            return;
+          }
+          console.log(value, index);
+        });
+    </script>
+  </body>
+</html>
+ 

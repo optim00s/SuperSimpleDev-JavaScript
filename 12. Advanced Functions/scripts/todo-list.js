@@ -3,9 +3,6 @@ const todoList = [];
 const todoListPage = [];
 const todoListWithDate = [];
 
-//practice 1
-console.log(todoList);
-
 function addToDo() {
     //js-input elementini JSdə təyin edirik
     const inputElement = document.querySelector('.js-input');
@@ -86,31 +83,32 @@ function renderToDoListWithDate() {
     let todoListHTML = '';
 
     /*
-      bu texnika Generating the HTML 
-      adlanır
+        mörtərizə daxilinə, hər bir to-do işə düşəcək
+        funksiyanı yazırıq.
+
+        ilk parameter, arrayin hər bir dəyərini 
+        təmsil edir
+
+        ikinci parameter, arrayin hər bir indexsini 
+        təmsil edir
+
+        (propertyi ilə eyni adlı variable yaratmağın qısa yolu)
+        const name = todoObject.name; 
+        
+        yerinə,
+
+        const { name } = todoObject;
+
+        destructuring assignment 
+        name variabli yaradaraq, todoObject daxilindəki
+        name propertysinin dəyərini yeni yaranmış variable təyin edir.
+
+        bu qısayolda, çoxlu propertylərdən istifadə edə bilərik
     */
-    for(let i = 0; i < todoListWithDate.length; i++) {
-        const todoObject = todoListWithDate[i];
-        /*
-          const name = todoObject.name;
-          destructuring
+    todoListWithDate.forEach(function(todoObject, index) {
 
-          const { name } = todoObject;
-          name variabli yaradaraq, todoObject daxilindəki
-          name propertysinin dəyərini qoyur
-
-          bu qısayolda, çoxlu propertylərdən istifadə 
-          edə bilərik
-        */
         const { name, dueDate } = todoObject;
-        /*
-          splice() methodu, iki dəyər alır.
-          birinci dəyər silmək istədiymiz indeksdir
-          ikinci dəyər silmək istədiyimiz dəyərlərin sayıdır
 
-          div elementi istifadə etməyimizin səbəbi
-          default stylingi olmamasıdır
-        */
         const html = `
             <div>
                 ${name} 
@@ -119,15 +117,15 @@ function renderToDoListWithDate() {
                 ${dueDate}
             </div>
             <button onclick = "
-                todoListWithDate.splice(${i}, 1);
+                todoListWithDate.splice(${index}, 1);
                 renderToDoListWithDate();
             "
             class = "delete-button"
             >Delete</button>
         `;
-    
+
         todoListHTML += html;
-    }
+    });
     
     const todoDiv = document.querySelector('.js-todo-date-list');
     

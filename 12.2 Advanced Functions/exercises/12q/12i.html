@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App</title>
+  </head>
+  <body>
+    <button class="js-increase-button">Add</button>
+    <button class="js-decrease-button">Remove</button>
+  </body>
+  <script>
+    let messages = 2;
+    let intervalId;
+    let isDisplayingNotification;
+
+    const increaseButton = document.querySelector('.js-increase-button');
+    const decreaseButton = document.querySelector('.js-decrease-button');
+
+    increaseButton.addEventListener('click', () => increaseMessage());
+    decreaseButton.addEventListener('click', () => decreaseMessage());
+
+    notification();
+
+    function increaseMessage() {
+        messages++;
+        notification();
+    }
+
+    function decreaseMessage() {
+        if (messages > 0) {
+            messages--;
+
+            if (messages === 0) {
+                stopNotification();
+            }
+        }  
+    }
+
+    function notification() {
+        if (isDisplayingNotification) {
+            return;
+        }
+
+        isDisplayingNotification = true;
+
+        intervalId = setInterval(() => {
+            if (document.title === 'App') {
+                document.title = `(${messages}) New Message`;
+            } else {
+                document.title = 'App';
+            }
+        }, 1000);
+    }
+
+    function stopNotification() {
+        isDisplayingNotification = false;
+
+        clearInterval(intervalId);
+        document.title = 'App';
+    }
+  </script>
+</html>

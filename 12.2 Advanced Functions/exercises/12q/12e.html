@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12e</title>
+  </head>
+  <body>
+    <button class="js-button">
+        Add to cart
+    </button>
+    <p class="message"></p>
+  </body>
+  <script>
+    const buttonElement = document.querySelector('.js-button');
+    const messageElement = document.querySelector('.message');
+    let timeoutId;
+
+    buttonElement.addEventListener('click', () => displayMessage());
+
+    function displayMessage() {
+      messageElement.innerHTML = 'Added'
+
+      clearTimeout(timeoutId);
+
+      timeoutId = setTimeout(() => {
+          messageElement.innerHTML = '';
+      }, 2000);
+    }
+  </script>
+</html>

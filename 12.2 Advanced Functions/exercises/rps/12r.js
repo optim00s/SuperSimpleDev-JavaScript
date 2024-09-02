@@ -14,39 +14,45 @@ let score = JSON.parse(localStorage.getItem("score")) || {
 */
 updateScoreElement();
 
-const rockButton = document.querySelector('.js-rock-button');
-const paperButton = document.querySelector('.js-paper-button');
-const scissorsButton = document.querySelector('.js-scissors-button');
-const resetButton = document.querySelector('.js-reset-score-button');
-const autoPlayButton = document.querySelector('.js-auto-play-button');
+const rockButton = document.querySelector(".js-rock-button");
+const paperButton = document.querySelector(".js-paper-button");
+const scissorsButton = document.querySelector(".js-scissors-button");
+const resetButton = document.querySelector(".js-reset-score-button");
+const autoPlayButton = document.querySelector(".js-auto-play-button");
 
-rockButton.addEventListener('click', () => {
-  playGame('rock');
+rockButton.addEventListener("click", () => {
+  playGame("rock");
 });
 
-paperButton.addEventListener('click', () => {
-  playGame('paper');
-});  
-
-scissorsButton.addEventListener('click', () => {
-  playGame('scissors');
-});  
-
-document.body.addEventListener('keydown', (event) => {
-  if (event.key === 'r') {
-    playGame('rock');
-  } else if (event.key === 'p') {
-    playGame('paper');
-  } else if (event.key === 's') {
-    playGame('scissors');
-  }
+paperButton.addEventListener("click", () => {
+  playGame("paper");
 });
 
-resetButton.addEventListener('click', () => {
-  resetScore();
+scissorsButton.addEventListener("click", () => {
+  playGame("scissors");
 });
 
-autoPlayButton.addEventListener('click', () => {
+const messageElement = document.querySelector('.js-message');
+
+document.body.addEventListener("keydown", (event) => {
+    if (event.key === "r") {
+      playGame("rock");
+    } else if (event.key === "p") {
+      playGame("paper");
+    } else if (event.key === "s") {
+      playGame("scissors");
+    } else if (event.key === 'a') {
+      autoPlay();
+    } else if (event.key === 'Backspace') {  
+        confirmationResetScore();
+    }
+});
+
+resetButton.addEventListener("click", () => {
+  confirmationResetScore();
+});
+
+autoPlayButton.addEventListener("click", () => {
   autoPlay();
 });
 
@@ -62,11 +68,11 @@ function autoPlay() {
     }, 1000);
 
     isAutoPlaying = true;
-    autoPlayButton.innerHTML = 'Stop Playing';
+    autoPlayButton.innerHTML = "Stop Playing";
   } else {
     clearInterval(intervalId);
     isAutoPlaying = false;
-    autoPlayButton.innerHTML = 'Auto Play';
+    autoPlayButton.innerHTML = "Auto Play";
   }
 }
 
@@ -140,7 +146,7 @@ function updateScoreElement() {
   ).innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
 }
 
-//kompüterin həmləsini seçməsi
+// kompüterin həmləsini seçməsi
 function pickComputerMove() {
   const randomNumber = Math.random();
 
@@ -157,7 +163,7 @@ function pickComputerMove() {
   return computerMove;
 }
 
-//xalın sıfırlanması
+// xalın sıfırlanması
 function resetScore() {
   score.wins = 0;
   score.losses = 0;
@@ -165,6 +171,24 @@ function resetScore() {
 
   localStorage.removeItem("score");
 
-  //sıfırlanmış xal göstərilir
+  // sıfırlanmış xal göstərilir
   updateScoreElement();
+}
+
+function confirmationResetScore () {
+    messageElement.innerHTML = `
+        <p>Are you sure you want to reset the score?</p>
+        <div>
+            <button class="js-yes-button">Yes</button>
+            <button class="js-no-button">No</button>
+        </div>
+    `  
+    document.querySelector('.js-yes-button')
+        .addEventListener('click', () => {
+            resetScore();
+            messageElement.innerHTML = '';
+        });
+
+    document.querySelector('.js-no-button')
+        .addEventListener('click', () => { messageElement. innerHTML = ''});
 }
